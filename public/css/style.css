@@ -30,9 +30,10 @@ body {
     background-color: white;
 }
 
-.fa-compass {
+.fa-house-laptop{
     font-size: 2rem;
     color: crimson;
+   
 }
 
 .nav-link {
@@ -113,7 +114,7 @@ body {
 
 /* Show page */
 .show-img {
-    height: 30vh;
+    height: 45vh;
 }
 
 .btns {
@@ -130,4 +131,13 @@ body {
 #map {
     height: 400px;
     width: 80vh;
+}
+
+
+/* show.ejs mobile view styling */
+
+@media (max-width: 768px) {
+ .mobileview{
+    offset: 0;
+ }
 }

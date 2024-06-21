@@ -1,15 +1,27 @@
 <% layout('/layouts/boilerplate') -%>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="/js/swiper-bundle.min.js"></script>
+
+           
+
 <style>
     #filters{
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: center;
+    
+    }
+    .mySwiper{
+      width: 70%;
+  
     }
     .filter{
       text-align: center;
-      margin-right:2rem ;
+      margin-right:.5rem ;
       margin-top: 2rem;
       opacity: 0.7;
+      margin-bottom: 2rem;
     }
     .filter:hover{
       opacity: 1;
@@ -26,63 +38,103 @@
       border-radius: 1rem ;
       height: 2.5rem;
       padding: 0.7rem;
-      margin-left: 14rem;
+      margin-left: 10rem;
       display: flex;
       align-items: center;
       opacity: .7;
       justify-content: center;
+    
     }
+ 
+         /* Media Queries for Mobile View */
+    @media (max-width: 768px) {
+        .mySwiper {
+            width: 100%;
+        }
+        .swiper-slide {
+            width: auto;
+        }
+        .toggle {
+          display: none;
+        }
+        .swiper-button-next{
+          display: none;
+        }
+    }
+  
     
-      </style>
-        <!-- <h4>All Listings</h4> -->
-        <!-- <form method="get" action="/listings/new">
-            <button>create new Listing!</button>
-        </form> -->
     
+  </style>
+
+
+
+
         <div id="filters">
-          <div class="filter">
-            <div><i class="fa-solid fa-fire"></i></div>
-            <p>Trending</p>
-          </div>
-          <div class="filter">
-            <div><i class="fa-solid fa-bed"></i></div>
-            <p>Rooms</p>
-          </div>
-          <div class="filter">
-            <div><i class="fa-solid fa-city"></i></div>
-            <p>Iconic City</p>
-          </div>
-          <div class="filter">
-            <div><i class="fa-solid fa-mountain-city"></i></div>
-            <p>Mountains</p>
-          </div>
-          <div class="filter">
-            <div><i class="fa-brands fa-fort-awesome"></i></div>
-            <p>Castels</p>
-          </div>
-          <div class="filter">
-            <div><i class="fa-solid fa-person-swimming"></i></div>
-            <p>Pools</p>
-          </div>
-          <div class="filter">
-            <div><i class="fa-solid fa-tents"></i></div>
-            <p>Camping</p>
-          </div>
-          <div class="filter">
-            <div><i class="fa-solid fa-wheat-awn"></i></div>
-            <p>Farm House</p>
-          </div>
-          <div class="filter">
-            <div><i class="fa-regular fa-snowflake"></i></div>
-            <p>Arctic</p>
-          </div>
-          <div class="filter">
-            <div><i class="fa-solid fa-water"></i></div>
-            <p>Lake</p>
-          </div>
-          <div class="filter">
-            <div><i class="fa-solid fa-igloo"></i></div>
-            <p>Doms</p>
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><div class="filter">
+                <i class="fa-solid fa-bed"></i>
+                <p>Rooms</p>
+              </div>
+            </div>
+             
+              <div class="swiper-slide">
+                <div class="filter">
+                  <i class="fa-solid fa-city"></i>
+                  <p>Iconic City</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="filter">
+                  <i class="fa-solid fa-mountain-city"></i>
+                  <p>Mountains</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="filter">
+                  <i class="fa-brands fa-fort-awesome"></i>
+                  <p>Castels</p>
+                </div>
+                
+              </div>
+              <div class="swiper-slide">
+                <div class="filter">
+                  <i class="fa-solid fa-person-swimming"></i>
+                  <p>Pools</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="filter">
+                  <i class="fa-solid fa-tents"></i>
+                  <p>Camping</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="filter">
+                  <i class="fa-solid fa-wheat-awn"></i>
+                  <p>Farm House</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="filter">
+                  <i class="fa-regular fa-snowflake"></i>
+                  <p>Arctic</p>
+                </div>
+              </div>
+              <div class="swiper-slide"><div class="filter">
+                <i class="fa-solid fa-water"></i>
+                <p>Lake</p>
+              </div>
+            </div>
+              <div class="swiper-slide">  <div class="filter">
+                <i class="fa-solid fa-igloo"></i>
+                <p>Doms</p>
+              </div>
+            </div>
+            </div>
+            
+            <div class="swiper-pagination"></div>
+             
           </div>
 
 
@@ -120,6 +172,7 @@
             </a>
             <% } %>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
         let taxSwitch = document.getElementById("flexSwitchCheckDefault");
@@ -136,6 +189,38 @@
             }
         })
 
-
-
     </script>
+
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 5,
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        400: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 50,
+        },
+      },
+  });
+</script>
+  

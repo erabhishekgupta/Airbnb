@@ -1,70 +1,116 @@
-<style>
-    .search-btn {
-        background-color: crimson;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-        border-radius: 25px;
-        padding: 0 1.5rem 0 1.5rem;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderLust</title>
+    <style>
+        /* Add your custom CSS here */
+        .search-btn {
+            background-color: crimson;
+            color: white;
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            border-radius: 25px;
+            padding: 0rem 1.5rem 0rem 1.5rem;
+        }
 
-    .search-input {
-        border-radius: 25px;
+        .search-input {
+            border-radius: 25px;
+        }
 
-    }
+        .search-btn:hover {
+            background-color: crimson;
+            color: white;
+        }
 
-    .search-btn:hover {
-        background-color: crimson;
-        color: white;
-    }
-    .fontstyle{
-        font-size: 1.7rem;
-        
-    }
-    .fontstyle b{
-        color: crimson;
-    }
-    .place{
-        opacity: .8;
-        font-size: 1.1rem;
-        font-weight: 500;
-    }
-    .place:hover{
-       opacity: 1;
-    }
+        .fontstyle {
+            font-size: 1.9rem;
+            margin: 1rem; /* Adjusted margin */
+            margin-right: 29rem;
+        }
 
-</style>
+        .fontstyle b {
+            color: crimson;
+        }
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand ms-5" href="/listings"><i class="fa-solid fa-house-laptop"></i></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link fontstyle" href="/listings"><b>Airbnb</b></a>
+        .place {
+            opacity: .8;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
 
-            </div>
-            <div class="navbar-nav ms-auto">
+        .place:hover {
+            opacity: 1;
+        }
+
+        /* Media Queries for Mobile View */
+        @media (max-width: 768px) {
+            .navbar-nav {
+                text-align: center;
+                align-items: center;
+                background-color: whitesmoke;
+                width: 100%;
+                height: auto;
+                justify-content: center;
+            }
+            .search-input {
+                width: 95%;
+            }
+            .search-btn {
+                width: 5%;
+                gap:0.1rem;
+            }
+            .fontstyle {
+                font-size: 1.5rem; /* Adjust font size for mobile */
+                top: 1.0rem; /* Adjust top position for mobile */
+                margin-right: -4rem;
+            }
+            .pomp {
+                display: flex;
+                width: 30%;
+            }
+            .navbarupdate {
+                margin-bottom: 0;
+                justify-content: center;
+            }
+           
+       
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top navbarupdate">
+        <div class="container-fluid">
+            <div class="fontstyle"><a class="nav-link" href="/listings"><b>Airbnb</b></a></div>
+            <div class="d-flex pomp">
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2 search-input" type="search" placeholder="Search destination">
-                    <button class="btn search-btn" type="submit"><i
-                            class="fa-solid fa-magnifying-glass"></i>Search</button>
+                    <input class="form-control me-2 search-input" type="search" placeholder="Search destinations">
+                    <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link place" href="/listings/new">Airbnb your place</a>
-                <% if(!currUser){ %>
-                    <a class="nav-link" href="/signup"><b>Sign Up</b></a>
-                    <a class="nav-link" href="/login"><b>Log In</b></a>
+
+        
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link place" href="/listings/new">Airbnb your place</a>
+                    <% if(!currUser){ %>
+                        <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+                        <a class="nav-link" href="/login"><b>Log In</b></a>
                     <% } %>
-                        <% if(currUser){ %>
-                            <a class="nav-link" href="/logout">Log Out</a>
-                            <% } %>
+                    <% if(currUser){ %>
+                        <a class="nav-link" href="/logout">Log Out</a>
+                    <% } %>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</body>
+</html>
+
+
